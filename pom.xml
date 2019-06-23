@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.ciat.climateforecast</groupId>
+    <artifactId>climateforecast</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+    <name>Climate Forecast</name>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-core</artifactId>
+            <version>1.0.0-alpha</version>
+        </dependency>
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>nd4j-native-platform</artifactId>
+            <version>1.0.0-alpha</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>com.twelvemonkeys.imageio</groupId>
+            <artifactId>imageio-tiff</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>ISO-8859-1</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                        <manifestEntries>
+                            <Specification-Title>Java Advanced Imaging Image I/O Tools</Specification-Title>
+                            <Specification-Version>1.0-mr</Specification-Version>
+                            <Specification-Vendor>Sun Microsystems, Inc.</Specification-Vendor>
+                            <Implementation-Title>com.sun.media.imageio</Implementation-Title>
+                            <Implementation-Version>1.0_01</Implementation-Version>
+                            <Implementation-Vendor>Sun Microsystems, Inc.</Implementation-Vendor>
+                            <Extension-Name>com.sun.media.imageio</Extension-Name>
+                            <Xuggle-Native-App>xuggle-xuggler</Xuggle-Native-App>
+                            <Xuggle-Native-Root>/com/xuggle/ferry</Xuggle-Native-Root>
+                            <Xuggle-Native-Paths>i386-xuggle-darwin11;i686-pc-linux-gnu;i686-w64-mingw32;x86_64-pc-linux-gnu;x86_64-w64-mingw32;x86_64-xuggle-darwin11</Xuggle-Native-Paths>
+                            <Xuggle-Native-Bundles>i386-xuggle-darwin11;i686-pc-linux-gnu;i686-w64-mingw32;x86_64-pc-linux-gnu;x86_64-w64-mingw32;x86_64-xuggle-darwin11</Xuggle-Native-Bundles>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
